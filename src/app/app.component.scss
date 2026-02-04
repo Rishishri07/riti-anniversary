@@ -10,7 +10,7 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
     box-sizing: border-box;
 }
 
-body {
+.container {
     margin: 0;
     padding: 0;
     background-color: $bg-wall;
@@ -207,10 +207,10 @@ body {
     // "Moments" Signature
     .signature-script {
         position: absolute;
-        bottom: 15%;
-        right: 15%;
+        bottom: 22%;
+        right: 5%;
         font-family: $text-script;
-        font-size: 4rem;
+        font-size: 3rem;
         color: rgba(255,255,255,0.7);
         transform: rotate(-5deg);
         z-index: 0; // Behind images if they touch
@@ -228,6 +228,7 @@ body {
         align-items: center;
 
         .p-dot {
+            cursor: pointer;
             width: 4px;
             height: 4px;
             background: rgba(255,255,255,0.4);

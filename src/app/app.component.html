@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishi-Iti Wedding</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
-
+<section class="container">
     <div class="presentation-wrapper">
         <div class="giant-bg-text">RITI</div>
 
@@ -29,7 +18,16 @@
 
                 <section class="panel-right">
                     <div class="collage-container">
-                        <div class="collage-item pos-1">
+                      <!-- @for (image of collageList; track image) {
+                        <div class="collage-item" [ngClass]="image.class">
+                          <img [src]="image.url" alt="Couple Back">
+                        </div>
+                      } -->
+                        <div *ngFor="let image of collageList" class="collage-item" [ngClass]="image.class">
+                          <img [src]="image.url" alt="Couple Back">
+                        </div>
+
+                        <!-- <div class="collage-item pos-1">
                             <img src="assets/images/iti.jpg" alt="Couple Back">
                         </div>
                         <div class="collage-item pos-2">
@@ -37,22 +35,20 @@
                         </div>
                         <div class="collage-item pos-3">
                             <img src="assets/images/rishi.jpg" alt="Bride">
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="signature-script">moments</div>
 
                     <div class="pagination-dots">
-                        <div class="p-dot active"></div>
-                        <div class="p-dot"></div>
-                        <div class="p-dot"></div>
-                        <div class="p-dot"></div>
+                        <div class="p-dot" [class.active]="activePageIdx === 0" (click)="goToPage(0)"></div>
+                        <div class="p-dot" [class.active]="activePageIdx === 1" (click)="goToPage(1)"></div>
+                        <div class="p-dot" [class.active]="activePageIdx === 2" (click)="goToPage(2)"></div>
+                        <!-- <div class="p-dot" [class.active]="activePageIdx === 3" (click)="goToPage(3)"></div> -->
                     </div>
 
                 </section>
             </main>
         </div>
     </div>
-
-</body>
-</html>
+</section>
