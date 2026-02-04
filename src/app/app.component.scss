@@ -18,33 +18,45 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    // overflow: hidden;
     font-family: $text-serif;
 }
 
 .presentation-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 }
 
 // 1. The Giant "SOLENE" Background Text
 .giant-bg-text {
     position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: clamp(16px, 5vh, 64px);
+    left: 0;
+    right: 0;
+    text-align: center;
     // font-family: $text-roman;
-    font-size: 10vw; // Massive responsive size
+    font-size: clamp(48px, 10vw, 180px); // Massive responsive size
     color: white;
     letter-spacing: 0.15em;
     z-index: 100;
     opacity: 0.9;
     line-height: 1;
     pointer-events: none;
+    background: linear-gradient(90deg, #217bfe, #078efb 25.93%, #ac87eb 52.38%, #ee4d5d 77.33%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media (min-width: 768px) and (max-width: 1000px) {
+        top: 6rem !important;
+    }
+
+    @media (min-width: 1001px) and (max-width: 1400px) {
+        top: 5rem !important;
+    }
 }
 
 // 2. The Browser Frame
@@ -82,7 +94,8 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
 
 .content-grid {
     flex: 1;
-    display: grid;
+    // display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     position: relative;
 }
@@ -90,7 +103,8 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
 // 3. Left Panel (Main Image)
 .panel-left {
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
+    width: 50%;
 
     img {
         width: 100%;
@@ -130,7 +144,8 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
     background-color: $bg-olive;
     position: relative;
     padding: 40px;
-    overflow: hidden;
+    // overflow: hidden;
+    width: 50%;
 
     // Top Navigation
     .top-nav {
@@ -185,6 +200,11 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
             width: 35%;
             left: 10%;
             z-index: 1;
+
+            @media (min-width: 768px) and (max-width: 768px) {
+                    width: 60%;
+                    left: 10%;
+            }
         }
 
         .pos-2 { // Middle Right (Faces)
@@ -193,6 +213,12 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
             height: 30%;
             right: 25%;
             z-index: 2; // Overlaps slightly?
+
+            @media (min-width: 768px) and (max-width: 768px) {
+                width: 50%;
+                top: 22%;
+                right: 0%;
+            }
         }
 
         .pos-3 { // Bottom Left (Bride)
@@ -201,6 +227,18 @@ $text-roman: 'Cinzel', serif; // For the sharp caps look
             bottom: 18%;
             left: 10%;
             z-index: 1;
+
+            @media (min-width: 768px) and (max-width: 768px) {
+                width: 60%;
+                bottom: 30%;
+                left: 10%;
+            }
+        }
+
+        .pos-2-bottom {
+            @media (min-width: 768px) and (max-width: 768px) {
+            bottom: 20%;
+            }
         }
     }
 

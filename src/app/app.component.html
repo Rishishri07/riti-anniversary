@@ -1,7 +1,7 @@
-<section class="container">
+<div *ngIf="displaySize.width < 768" class="no-show">Switch to bigger resolution</div>
+<section class="container" *ngIf="displaySize.width >= 768">
+  <div class="giant-bg-text">RITI</div>
     <div class="presentation-wrapper">
-        <div class="giant-bg-text">RITI</div>
-
         <div class="browser-frame">
             <div class="browser-header">
                 <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -23,7 +23,8 @@
                           <img [src]="image.url" alt="Couple Back">
                         </div>
                       } -->
-                        <div *ngFor="let image of collageList" class="collage-item" [ngClass]="image.class">
+                        <div *ngFor="let image of collageList" class="collage-item" [ngClass]="image.class"
+                        [class.pos-2-bottom]="activePageIdx === 1 && image.page === 23">
                           <img [src]="image.url" alt="Couple Back">
                         </div>
 
@@ -46,7 +47,6 @@
                         <div class="p-dot" [class.active]="activePageIdx === 2" (click)="goToPage(2)"></div>
                         <!-- <div class="p-dot" [class.active]="activePageIdx === 3" (click)="goToPage(3)"></div> -->
                     </div>
-
                 </section>
             </main>
         </div>
