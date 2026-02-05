@@ -12,40 +12,40 @@
                 <section class="panel-left">
                     <img src="assets/images/cover.jpg" alt="Main Couple">
                     <div class="logo-script">5th Feb 2022</div>
+
+                    <div class="button-container">
+                      <button class="cta-button yes-btn" (click)="onYesClick()">
+                        YES
+                      </button>
+
+                      <button 
+                        #noBtn 
+                        class="cta-button no-btn" 
+                        (mouseenter)="moveButton()"
+                        (touchstart)="moveButton()">
+                        NO
+                      </button>
+                    </div>
+
+                    <div *ngIf="showSuccess" class="success-message">
+                      Yay! Best decision ever! ❤️
+                    </div>
                 </section>
 
                 <div class="center-title">LOVE STORY</div>
 
                 <section class="panel-right">
                     <div class="collage-container">
-                      <!-- @for (image of collageList; track image) {
-                        <div class="collage-item" [ngClass]="image.class">
-                          <img [src]="image.url" alt="Couple Back">
-                        </div>
-                      } -->
                         <div *ngFor="let image of collageList" class="collage-item" [ngClass]="image.class"
-                        [class.pos-2-bottom]="activePageIdx === 1 && image.page === 23">
-                          <img [src]="image.url" alt="Couple Back">
+                        [class.pos-2-bottom]="activePageIdx === 1 && image.page === 23"
+                        [class.pos-3-bottom]="activePageIdx === 0 && image.page === 13">
+                          <img [src]="image.url" alt="Couple Back" priority>
                         </div>
-
-                        <!-- <div class="collage-item pos-1">
-                            <img src="assets/images/iti.jpg" alt="Couple Back">
-                        </div>
-                        <div class="collage-item pos-2">
-                            <img src="assets/images/cover_min.jpg" alt="Faces">
-                        </div>
-                        <div class="collage-item pos-3">
-                            <img src="assets/images/rishi.jpg" alt="Bride">
-                        </div> -->
                     </div>
-
-                    <div class="signature-script">moments</div>
-
                     <div class="pagination-dots">
                         <div class="p-dot" [class.active]="activePageIdx === 0" (click)="goToPage(0)"></div>
                         <div class="p-dot" [class.active]="activePageIdx === 1" (click)="goToPage(1)"></div>
                         <div class="p-dot" [class.active]="activePageIdx === 2" (click)="goToPage(2)"></div>
-                        <!-- <div class="p-dot" [class.active]="activePageIdx === 3" (click)="goToPage(3)"></div> -->
                     </div>
                 </section>
             </main>

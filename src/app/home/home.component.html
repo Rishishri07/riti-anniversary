@@ -1,48 +1,55 @@
-<section class="home">
+<div *ngIf="displaySize.width < 768" class="no-show">Switch to bigger resolution</div>
+<section class="container" *ngIf="displaySize.width >= 768">
+  <div class="giant-bg-text">RITI</div>
+    <div class="presentation-wrapper">
+        <div class="browser-frame">
+            <div class="browser-header">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
 
-  <!-- Background Title -->
-  <h1 class="brand-title">RITI</h1>
+            <main class="content-grid">
+                
+                <section class="panel-left">
+                    <img src="assets/images/cover.jpg" alt="Main Couple">
+                    <div class="logo-script">5th Feb 2022</div>
+                </section>
 
-  <div class="frame">
+                <div class="center-title">LOVE STORY</div>
 
-    <div class="dot-container">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+                <section class="panel-right">
+                    <div class="collage-container">
+                      <!-- @for (image of collageList; track image) {
+                        <div class="collage-item" [ngClass]="image.class">
+                          <img [src]="image.url" alt="Couple Back">
+                        </div>
+                      } -->
+                        <div *ngFor="let image of collageList" class="collage-item" [ngClass]="image.class"
+                        [class.pos-2-bottom]="activePageIdx === 1 && image.page === 23"
+                        [class.pos-3-bottom]="activePageIdx === 0 && image.page === 13">
+                          <img [src]="image.url" alt="Couple Back" priority>
+                        </div>
+
+                        <!-- <div class="collage-item pos-1">
+                            <img src="assets/images/iti.jpg" alt="Couple Back">
+                        </div>
+                        <div class="collage-item pos-2">
+                            <img src="assets/images/cover_min.jpg" alt="Faces">
+                        </div>
+                        <div class="collage-item pos-3">
+                            <img src="assets/images/rishi.jpg" alt="Bride">
+                        </div> -->
+                    </div>
+
+                    <div class="signature-script">moments</div>
+
+                    <div class="pagination-dots">
+                        <div class="p-dot" [class.active]="activePageIdx === 0" (click)="goToPage(0)"></div>
+                        <div class="p-dot" [class.active]="activePageIdx === 1" (click)="goToPage(1)"></div>
+                        <div class="p-dot" [class.active]="activePageIdx === 2" (click)="goToPage(2)"></div>
+                        <!-- <div class="p-dot" [class.active]="activePageIdx === 3" (click)="goToPage(3)"></div> -->
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
-    <div class="home-page">
-        <!-- Left Hero Image -->
-    <div class="hero">
-      <img src="assets/images/cover.jpg" alt="Couple moment">
-    </div>
-
-    <!-- Right Gallery -->
-    <div class="gallery">
-
-      <!-- <div class="gallery-item tall">
-        <img src="assets/images/img1.jpg" alt="">
-      </div> -->
-
-      <div class="gallery-item" style="margin-left: 3rem;">
-        <img src="assets/images/img2.jpg" alt="">
-      </div>
-
-      <div class="gallery-item" style="margin-left: 6rem;">
-        <img src="assets/images/img3.jpg" alt="">
-      </div>
-
-      <div class="gallery-item" style="margin-left: 9rem;">
-        <img src="assets/images/img4.jpg" alt="">
-      </div>
-
-      <!-- Center Text -->
-      <div class="overlay-text">
-        <span>HAPPY ANNIVERSARY</span>
-      </div>
-
-    </div>
-    </div>
-  </div>
-
 </section>
